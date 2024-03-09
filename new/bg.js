@@ -5,7 +5,7 @@ var cssCiewerContextMenusParent = null;
 // Check whether new version is installed
 chrome.runtime.onInstalled.addListener(function (details) {
     if (details.reason == "install" || details.reason == "update") {
-        // chrome.tabs.create({ url: "#" });
+        chrome.tabs.create({ url: "./web/thanks.html" });
     }
 
     // chrome.storage.sync.set({ mDate: Date.now });
