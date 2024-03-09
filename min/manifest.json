@@ -1,0 +1,54 @@
+{
+    "name": "CSS Reader Copier",
+    "description": "read and copy css in any element on a webpage",
+    "version": "0.0.0.1",
+    "manifest_version": 3,
+    "icons": {
+        "16": "./img/16.png",
+        "24": "./img/24.png",
+        "32": "./img/32.png",
+        "48": "./img/48.png",
+        "128": "./img/128.png",
+        "256": "./img/256.png",
+        "512": "./img/512.png"
+    },
+    "action": {
+        "default_icons": {
+            "16": "./img/16.png",
+            "24": "./img/24.png",
+            "32": "./img/32.png",
+            "48": "./img/48.png",
+            "128": "./img/128.png",
+            "256": "./img/256.png",
+            "512": "./img/512.png"
+        },
+        "default_title": "css reader"
+    },
+    "options_page": "./options/options.html",
+    "background": {
+        "service_worker": "bg.js"
+    },
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "img/header.png",
+                "img/body.png",
+                "img/list.png",
+                "img/footer.png",
+                "img/bullet.png"
+            ],
+            "matches": [
+                "*://*/*"
+            ]
+        }
+    ],
+    "permissions": [
+        "tabs",
+        "scripting",
+        "contextMenus",
+        "notifications"
+    ],
+    "host_permissions": [
+        "*://*/*"
+    ]
+}
