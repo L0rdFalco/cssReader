@@ -943,7 +943,9 @@ function CssReaderKeyMap(e) {
 
     // ESC: Close the css Reader if the cssReader is enabled.
     if (e.keyCode === 27) {
+        console.log("escape");
         // Remove the red outline
+        window.location.reload()
         CSSReader_current_element.style.outline = '';
         cssReader.Disable();
     }
@@ -958,6 +960,8 @@ function CssReaderKeyMap(e) {
         }
         else {
             cssReader.Unfreeze();
+            window.location.reload()
+
         }
     }
 
@@ -984,3 +988,5 @@ else {
 
 // Set event handler for the CssReader 
 document.onkeydown = CssReaderKeyMap;
+
+// chrome.runtime.sendMessage({ message: "notify" });

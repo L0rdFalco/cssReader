@@ -45,7 +45,8 @@
     "permissions": [
         "tabs",
         "scripting",
-        "contextMenus"
+        "contextMenus",
+        "notifications"
     ],
     "host_permissions": [
         "*://*/*"

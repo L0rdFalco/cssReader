@@ -7,7 +7,13 @@ chrome.runtime.onInstalled.addListener(function (details) {
     if (details.reason == "install" || details.reason == "update") {
         // chrome.tabs.create({ url: "#" });
     }
+
+    // chrome.storage.sync.set({ mDate: Date.now });
+
 });
+
+
+
 
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
@@ -16,6 +22,11 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         sendResponse({
             message: "from options activation success"
         })
+
+    }
+
+    else if (request.message === "notify") {
+        chrome.notifications.create({ title: "Title", message: "There is an time slot available", iconUrl: "/img/24.png", type: "basic" })
 
     }
 
@@ -39,6 +50,10 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
 })
 
+chrome.notifications.onClicked.addListener((info) => {
+    chrome.tabs.create({ url: "https://google.com" });
+
+})
 
 chrome.action.onClicked.addListener(async (tab) => {
     let tabId = tab.id
@@ -49,6 +64,7 @@ chrome.action.onClicked.addListener(async (tab) => {
     }
 
     if (!cssReaderLoaded) {
+
         cssCiewerContextMenusParent = chrome.contextMenus.create({ id: "0", "title": "CSSReader console", contexts: ["all"] });
 
         chrome.contextMenus.create({ id: "1", "title": "element", contexts: ["all"], "parentId": cssCiewerContextMenusParent, });
@@ -59,6 +75,7 @@ chrome.action.onClicked.addListener(async (tab) => {
         chrome.contextMenus.create({ id: "6", "title": "element.cssText", contexts: ["all"], "parentId": cssCiewerContextMenusParent, });
         chrome.contextMenus.create({ id: "7", "title": "element.getComputedStyle", contexts: ["all"], "parentId": cssCiewerContextMenusParent, });
         chrome.contextMenus.create({ id: "8", "title": "element.simpleCssDefinition", contexts: ["all"], "parentId": cssCiewerContextMenusParent });
+
     }
 
     chrome.contextMenus.onClicked.addListener((info) => {
@@ -179,3 +196,5 @@ function msgSender(arg) {
     });
 
 }
+
+
