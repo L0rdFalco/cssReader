@@ -505,7 +505,7 @@ function CSSReaderMouseOver(e) {
 
     // Outline element
     if (this.tagName != 'body') {
-        this.style.outline = '1px dashed #f00';
+        this.style.outline = '1px dashed #13eb4c';
         CSSReader_current_element = this;
     }
 
@@ -697,7 +697,7 @@ function CSSReader() {
             footer.id = 'CSSReader_footer';
 
             //< 
-            footer.appendChild(document.createTextNode('KEYS: f - Un/Freeze | c - COPY CSS| ESC- Close.'));
+            footer.appendChild(document.createTextNode('PRESS: FF to Un/Freeze, c - COPY CSS, ESC- Close.'));
             block.appendChild(footer);
         }
 
@@ -831,7 +831,7 @@ CSSReader.prototype.Enable = function () {
 * Disable CSSReader
 */
 CSSReader.prototype.Disable = function () {
-    console.log("viwer disabled");
+    console.log("viewer disabled");
     var document = GetCurrentDocument();
     var block = document.getElementById('CSSReader_block');
 
@@ -886,7 +886,7 @@ function cssReaderInsertMessage(msg) {
 
     oNewP.appendChild(oText);
     oNewP.id = 'cssReaderInsertMessage';
-    oNewP.style.backgroundColor = '#b40000';
+    oNewP.style.backgroundColor = '#0a0a0a';
     oNewP.style.color = '#ffffff';
     oNewP.style.position = "absolute";
     oNewP.style.top = '10px';
